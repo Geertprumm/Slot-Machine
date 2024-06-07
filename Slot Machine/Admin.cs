@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Slot_Machine
 {
-    internal class Class1
+    internal class Admin
     {
     }
 }

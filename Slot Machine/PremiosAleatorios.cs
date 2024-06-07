@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Slot_Machine
 {
-    internal class Program
+    internal class PremiosAleatorios
     {
-        static void Main(string[] args)
-        {
-
-           
-
-        }
     }
 }

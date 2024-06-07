@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class2.cs" />
-    <Compile Include="vdwerfg.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="PremiosAleatorios.cs" />
+    <Compile Include="PremiosSimples.cs" />
+    <Compile Include="Premios.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="MaquinaSlots.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

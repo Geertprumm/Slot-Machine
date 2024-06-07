@@ -10,6 +10,9 @@ namespace Slot_Machine
     {
         static void Main(string[] args)
         {
+
+            zxcfvghjhgfdsa
+
         }
     }
 }

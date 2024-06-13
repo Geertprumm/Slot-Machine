@@ -14,17 +14,16 @@ namespace Slot_Machine
             MaquinaSlots maquinaSlots = new MaquinaSlots();
             Admin admin = new Admin();
             admin.MaquinaSlots = maquinaSlots;
-            Premios premios = new Premios();
 
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||");
-                Console.WriteLine("\t||                                               ||");
-                Console.WriteLine("\t||      Bienvenido a la maquina de tragaperras   ||");
-                Console.WriteLine("\t||                                               ||");
-                Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||");
+                Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                Console.WriteLine("\t||                                                ||");
+                Console.WriteLine("\t||      Bienvenido a la maquina de tragaperras    ||");
+                Console.WriteLine("\t||                                                ||");
+                Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||");
                 Console.WriteLine("");
                 Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||");
                 Console.WriteLine("\t||                                                ||");
@@ -32,19 +31,44 @@ namespace Slot_Machine
                 Console.WriteLine("\t||     1. Jugar                                   ||");
                 Console.WriteLine("\t||     2. Mostrar premios                         ||");
                 Console.WriteLine("\t||     3. Cargar premios                          ||");         
-                Console.WriteLine("\t||     5. Salir                                   ||");
+                Console.WriteLine("\t||     4. Salir                                   ||");
                 Console.WriteLine("\t||                                                ||");
                 Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||");
 
-
-                switch (opcion)
+                try
                 {
-                    case 1:
-                        maquinaSlots.Jugar(); break;
-                    case 2:
-                        Premios.MostrarInformacion(); break;
+                    Console.Write("\n\n\tOpcion: ");
+                    opcion = int.Parse(Console.ReadLine());
 
+                    switch (opcion)
+                    {
+                        case 1:
+                            Console.Clear();
+                            maquinaSlots.Jugar(); break;
+                        case 2:
+                            Console.Clear();
+                            maquinaSlots.MostrarInformacionPremios(); break;
+                        case 3:
+                            Console.Clear();
+                            admin.MenuAdmin(); break;
+                        case 4:
+                            Console.Clear();
+                            Console.WriteLine("Bye, Bye");
+                            Console.ReadKey();
+
+                        default:
+                            Console.WriteLine("La opción nos es valida");
+                            break;
+
+                    }
                 }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.ReadKey();
+                }
+
+
             } while(opcion != 3  );
 
         }

@@ -107,5 +107,14 @@ namespace Slot_Machine
             }
 
         }
+
+        public void MostrarInformacionPremios()
+        {
+            foreach(Premios p in Premios)
+            {
+                Console.WriteLine(p.MostrarInformacion());
+            }
+        }
+
     }
 }

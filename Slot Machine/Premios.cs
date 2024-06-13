@@ -8,5 +8,20 @@ namespace Slot_Machine
 {
     internal class Premios
     {
+
+        public string Nombre { get; set; }
+        public int Simbolo1 { get; set; }
+        public int Simbolo2 { get; set; }
+        public int Simbolo3 { get; set; }
+
+
+        public Premios(string nombre, int simbolo1, int simbolo2, int simbolo3)
+        {
+            Nombre = nombre;
+            Simbolo1 = simbolo1;
+            Simbolo2 = simbolo2;
+            Simbolo3 = simbolo3;
+        }
+
     }
 }

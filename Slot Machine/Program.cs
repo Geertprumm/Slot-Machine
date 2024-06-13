@@ -44,17 +44,21 @@ namespace Slot_Machine
                     {
                         case 1:
                             Console.Clear();
-                            maquinaSlots.Jugar(); break;
+                            maquinaSlots.Jugar(); 
+                            break;
                         case 2:
                             Console.Clear();
-                            maquinaSlots.MostrarInformacionPremios(); break;
+                            maquinaSlots.MostrarPremios(); 
+                            break;
                         case 3:
                             Console.Clear();
-                            admin.MenuAdmin(); break;
+                            admin.MenuAdmin(); 
+                            break;
                         case 4:
-                            Console.Clear();
-                            Console.WriteLine("Bye, Bye");
+                            
+                            Console.WriteLine("Hasta la proxima");
                             Console.ReadKey();
+                            break;
 
                         default:
                             Console.WriteLine("La opción nos es valida");
@@ -69,7 +73,7 @@ namespace Slot_Machine
                 }
 
 
-            } while(opcion != 3  );
+            } while(opcion != 4  );
 
         }
     }

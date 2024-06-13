@@ -14,7 +14,7 @@ namespace Slot_Machine
 
         private List<Premios> Premios = new List<Premios>();
 
-        private int[] simbolos = { 1,2,3,4,5,6 };
+        private int[] simbolos = { 1,2,3,4,5,6,7,8,9,10};
 
 
         public MaquinaSlots() { }
@@ -33,13 +33,13 @@ namespace Slot_Machine
             Premios ComprobarGanador = null;
             do
             {
-                for (int i = 0; i < matrizjuego.Length; i++)
+                for (int i = 0; i < matrizjuego.GetLength(0); i++)
                 {
                     Random random = new Random();
 
                     int numeroaleatorio = random.Next(simbolos[i]);
 
-                    for (int j = 0; j < matrizjuego.Length; j++)
+                    for (int j = 0; j < matrizjuego.GetLength(1); j++)
                     {
                         matrizjuego[i, j] = numeroaleatorio;
                     }
@@ -70,10 +70,10 @@ namespace Slot_Machine
 
         public void ImprimirMatriz()
         {
-            for (int i = 0; i < matrizjuego.Length; i++)
+            for (int i = 0; i < matrizjuego.GetLength(0); i++)
             {
 
-                for (int j = 0; j < matrizjuego.Length; j++)
+                for (int j = 0; j < matrizjuego.GetLength(1); j++)
                 {
                     Console.Write($"{matrizjuego[i,j]}");
                 }
@@ -84,11 +84,10 @@ namespace Slot_Machine
 
         public void CargarPremios(string archivo)
         {
-
             using (StreamReader sr = new StreamReader(archivo))
             {
                 string linea;
-                while((linea = sr.ReadLine()) != null)
+                while ((linea = sr.ReadLine()) != null)
                 {
                     string[] datos = linea.Split(';');
 
@@ -99,20 +98,10 @@ namespace Slot_Machine
                     }
                     else
                     {
-                        PremiosAleatorios p = new PremiosAleatorios(datos[0], int.Parse(datos[1]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], datos[6], int.Parse(datos[7]));
+                        PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], int.Parse(datos[3]), int.Parse(datos[4]), int.Parse(datos[5]), datos[6], datos[7], double.Parse(datos[8]));
                         Premios.Add(p);
                     }
-
                 }
-            }
-
-        }
-
-        public void MostrarInformacionPremios()
-        {
-            foreach(Premios p in Premios)
-            {
-                Console.WriteLine(p.MostrarInformacion());
             }
         }
 

@@ -17,19 +17,20 @@ namespace Slot_Machine
 
 
 
-        public Premios(int tipoPremio, string nombre, int simbolo1, int simbolo2, int simbolo3)
+        
+
+        public Premios(int tipoPremios, string nombre, int simbolo1, int simbolo2, int simbolo3)
         {
             Nombre = nombre;
             Simbolo1 = simbolo1;
             Simbolo2 = simbolo2;
             Simbolo3 = simbolo3;
-            TipoPremio = tipoPremio;
+            TipoPremio = tipoPremios;
         }
-
 
         public string MostrarInformacion()
         {
-           return $"{Nombre} -- {Simbolo1} --- {Simbolo2} --- {Simbolo3} ";
+           return $"{Nombre} --- {Simbolo1} --- {Simbolo2} --- {Simbolo3} ";
         }
 
         public bool ComprobarSimbolos(int s1, int s2, int s3)

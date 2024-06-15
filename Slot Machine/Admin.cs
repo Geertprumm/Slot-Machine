@@ -9,7 +9,7 @@ namespace Slot_Machine
 {
     internal class Admin
     {
-
+        public const string adminClave = "admin123";
         private int Contraseña {  get; set; }
         public string Nombre { get; set; }  
 
@@ -44,6 +44,21 @@ namespace Slot_Machine
                 {
                     Console.WriteLine("El archivo no existe");
                 }
+            }
+        }
+
+        public bool AutenticarAdmin()
+        {
+            Console.Write("Introduce la clave de administrador: ");
+            string clave = Console.ReadLine();
+            if (clave == adminClave)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Clave incorrecta.");
+                return false;
             }
         }
     }

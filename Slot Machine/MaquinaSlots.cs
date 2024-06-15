@@ -59,10 +59,10 @@ namespace Slot_Machine
                 }
                 else
                 {
-                    Console.WriteLine("No ha habido suerte, ¿Quieres jugar otra vez? (S/N)");
+                    Console.WriteLine("No ha habido suerte, ¿Quieres jugar otra vez? (s/n)");
                     respuesta = Console.ReadLine();
                 }
-            } while (respuesta != "N");
+            } while (respuesta != "n");
 
            
         }
@@ -98,7 +98,7 @@ namespace Slot_Machine
                     }
                     else
                     {
-                        PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], int.Parse(datos[3]), int.Parse(datos[4]), int.Parse(datos[5]), datos[6], datos[7], double.Parse(datos[8]));
+                        PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], datos[6], double.Parse(datos[7]));
                         Premios.Add(p);
                     }
                 }

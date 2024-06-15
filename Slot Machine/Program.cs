@@ -52,7 +52,10 @@ namespace Slot_Machine
                             break;
                         case 3:
                             Console.Clear();
-                            admin.MenuAdmin(); 
+                            if (admin.AutenticarAdmin())
+                            {
+                                admin.MenuAdmin();
+                            }
                             break;
                         case 4:
                             

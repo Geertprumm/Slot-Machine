@@ -10,21 +10,22 @@ namespace Slot_Machine
     internal class MaquinaSlots
     {
 
-        private int[,]matrizjuego = new int[3,3];
+        private int[ , ] matrizjuego = new int[3 , 3];
 
         private List<Premios> Premios = new List<Premios>();
 
-        private int[] simbolos = { 1,2,3,4,5,6,7,8,9,10};
+        private int[] simbolos = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        private static Random Random = new Random();
 
 
         public MaquinaSlots() { }
 
-        
+
 
 
         public void MostrarPremios()
         {
-            foreach(Premios p in Premios) Console.WriteLine(p.MostrarInformacion());
+            foreach (Premios p in Premios) Console.WriteLine(p.MostrarInformacion());
         }
 
         public void Jugar()
@@ -35,13 +36,14 @@ namespace Slot_Machine
             {
                 for (int i = 0; i < matrizjuego.GetLength(0); i++)
                 {
-                    Random random = new Random();
 
-                    int numeroaleatorio = random.Next(simbolos[i]);
+
+                    int numeroaleatorio = Random.Next(simbolos[i]);
 
                     for (int j = 0; j < matrizjuego.GetLength(1); j++)
                     {
-                        matrizjuego[i, j] = numeroaleatorio;
+                        int numeroAleatorio = Random.Next(0, simbolos.Length);
+                        matrizjuego[i, j] = simbolos[numeroAleatorio];
                     }
                 }
                 ImprimirMatriz();
@@ -51,9 +53,9 @@ namespace Slot_Machine
                     {
                         ComprobarGanador = p;
                     }
-                    
+
                 }
-                if(ComprobarGanador != null)
+                if (ComprobarGanador != null)
                 {
                     Console.WriteLine(ComprobarGanador.Nombre);
                 }
@@ -64,21 +66,29 @@ namespace Slot_Machine
                 }
             } while (respuesta != "n");
 
-           
+
         }
 
 
         public void ImprimirMatriz()
         {
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < matrizjuego.GetLength(0); i++)
             {
 
                 for (int j = 0; j < matrizjuego.GetLength(1); j++)
                 {
-                    Console.Write($"{matrizjuego[i,j]}");
+                    sb.Append(matrizjuego[i, j]);
+                    if (j < matrizjuego.GetLength(1) - 1)
+                    {
+                        sb.Append(" | ");
+                    }
+                    
                 }
-                Console.WriteLine();
+                sb.AppendLine();
+                
             }
+            Console.WriteLine(sb.ToString());
         }
 
 
@@ -103,7 +113,7 @@ namespace Slot_Machine
                     }
                 }
             }
-        }
 
+        }
     }
 }

@@ -94,26 +94,56 @@ namespace Slot_Machine
 
         public void CargarPremios(string archivo)
         {
-            using (StreamReader sr = new StreamReader(archivo))
+            try
             {
-                string linea;
-                while ((linea = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader(archivo))
                 {
-                    string[] datos = linea.Split(';');
+                    string linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        string[] datos = linea.Split(';');
+                        if (datos.Length < 5 || (datos[0] == "2" && datos.Length < 8))
+                        {
+                            Console.WriteLine("Datos incompletos o corruptos en el archivo.");
+                            continue;
+                        }
 
-                    if (datos[0] == "1")
-                    {
-                        PremiosSimples p = new PremiosSimples(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5]);
-                        Premios.Add(p);
-                    }
-                    else
-                    {
-                        PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], datos[6], double.Parse(datos[7]));
-                        Premios.Add(p);
+                        try
+                        {
+                            if (datos[0] == "1")
+                            {
+                                PremiosSimples p = new PremiosSimples(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5]);
+                                Premios.Add(p);
+                            }
+                            else
+                            {
+                                PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], datos[6], double.Parse(datos[7]));
+                                Premios.Add(p);
+                            }
+                        }
+                        catch (FormatException ex)
+                        {
+                            Console.WriteLine($"Error de formato en los datos: {ex.Message}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error desconocido al cargar el premio: {ex.Message}");
+                        }
                     }
                 }
             }
-
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("El archivo especificado no existe.");
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error de IO al acceder al archivo: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error desconocido al cargar premios: {ex.Message}");
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Slot_Machine
 
         public void MenuAdmin()
         {
-            Console.WriteLine("Introduce el nombre del archivo para recargar los productos: ");
+            Console.WriteLine("Introduce el nombre del archivo para recargar los premios: ");
             string archivo = Console.ReadLine();
             if(string.IsNullOrEmpty(archivo))
             {

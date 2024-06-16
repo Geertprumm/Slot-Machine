@@ -30,7 +30,7 @@ namespace Slot_Machine
 
         public string MostrarInformacion()
         {
-           return $"{Nombre} --- {Simbolo1} --- {Simbolo2} --- {Simbolo3} ";
+            return $"Tipo de premio: {TipoPremio} --- \nNombre: {Nombre} --- \nSimbolo 1: {Simbolo1} --- \nSimbolo 2: {Simbolo2} --- \nSimbolo 3: {Simbolo3} ";
         }
 
         public bool ComprobarSimbolos(int s1, int s2, int s3)

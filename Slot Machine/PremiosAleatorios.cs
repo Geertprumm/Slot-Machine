@@ -21,5 +21,14 @@ namespace Slot_Machine
             Probabilidad = probabilidad;
         }
 
+
+        public string MostrarConsejo()
+        {
+            Random random = new Random();
+            return random.NextDouble() <= Probabilidad ? Consejo1 : Consejo2;
+        }
+
+
+        
     }
 }

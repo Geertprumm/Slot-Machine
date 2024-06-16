@@ -10,19 +10,9 @@ namespace Slot_Machine
     internal class Admin
     {
         public const string adminClave = "admin123";
-        private int Contraseña {  get; set; }
-        public string Nombre { get; set; }  
+          
 
         public MaquinaSlots  MaquinaSlots { get; set; }
-
-
-        public Admin() { }
-
-        public Admin(int contraseña,string nombre)
-        {
-            Contraseña = contraseña;
-            Nombre = nombre;
-        }
 
 
 

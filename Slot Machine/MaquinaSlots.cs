@@ -10,11 +10,11 @@ namespace Slot_Machine
     internal class MaquinaSlots
     {
 
-        private int[ , ] matrizjuego = new int[3 , 3];
+        private string[ , ] matrizjuego = new string[3 , 3];
 
         private List<Premios> Premios = new List<Premios>();
 
-        private int[] simbolos = { 0, 5,10 };
+        private string[] simbolos = { "0", "5","10", "*" };
         private static Random Random = new Random();
 
 
@@ -38,7 +38,7 @@ namespace Slot_Machine
                 {
 
 
-                    int numeroaleatorio = Random.Next(simbolos[i]);
+                    int numeroaleatorio = Random.Next(int.Parse(simbolos[i]));
 
                     for (int j = 0; j < matrizjuego.GetLength(1); j++)
                     {
@@ -116,12 +116,12 @@ namespace Slot_Machine
                         
                             if (datos.Length == 6 && datos[0] == "1")
                             {
-                                PremiosSimples p = new PremiosSimples(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5]);
+                                PremiosSimples p = new PremiosSimples(int.Parse(datos[0]), datos[1], datos[2],datos[3],datos[4], datos[5]);
                                 Premios.Add(p);
                             }
                             else if (datos.Length == 8 && datos[0] == "2")
                             {
-                                PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], datos[6], double.Parse(datos[7]));
+                                PremiosAleatorios p = new PremiosAleatorios(int.Parse(datos[0]), datos[1], datos[2],datos[3], datos[4], datos[5], datos[6], double.Parse(datos[7]));
                                 Premios.Add(p);
                             }
                             else

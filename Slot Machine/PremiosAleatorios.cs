@@ -13,7 +13,7 @@ namespace Slot_Machine
         public string Consejo2 { get; set; }
         public double Probabilidad { get; set; }
 
-        public PremiosAleatorios(int tipoPremios, string nombre, int simbolo1, int simbolo2, int simbolo3, string consejo1, string consejo2, double probabilidad)
+        public PremiosAleatorios(int tipoPremios, string nombre, string simbolo1, string simbolo2, string simbolo3, string consejo1, string consejo2, double probabilidad)
         : base(tipoPremios, nombre, simbolo1, simbolo2, simbolo3)
         {
             Consejo1 = consejo1;

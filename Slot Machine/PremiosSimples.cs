@@ -12,7 +12,7 @@ namespace Slot_Machine
         public string Consejo {  get; set; }
 
 
-        public PremiosSimples(int tipopremio, string nombre, int simbolo1, int simbolo2, int simbolo3, string consejo)
+        public PremiosSimples(int tipopremio, string nombre, string simbolo1, string simbolo2, string simbolo3, string consejo)
         : base( tipopremio,nombre, simbolo1, simbolo2, simbolo3)
         {
 
